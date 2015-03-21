@@ -1,8 +1,8 @@
 {
  "geoms": {
- "geom1_point_plot": {
+ "geom1_point_location": {
  "geom": "point",
-"classed": "geom1_point_plot",
+"classed": "geom1_point_location",
 "aes": {
  "x": "x",
 "y": "y",
@@ -18,7 +18,7 @@
  "colour": "rgb",
 "x": "numeric",
 "y": "numeric",
-"showSelected": "factor",
+"showSelected": "integer",
 "label": "factor",
 "PANEL": "integer",
 "fill": "rgb" 
@@ -41,12 +41,12 @@
  "iter" 
 ],
 "nest_order": [],
-"timeValues": [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" ],
-"nextgeom": "geom2_text_plot" 
+"timeValues": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+"nextgeom": "geom2_text_location" 
 },
-"geom2_text_plot": {
+"geom2_text_location": {
  "geom": "text",
-"classed": "geom2_text_plot",
+"classed": "geom2_text_location",
 "aes": {
  "x": "x",
 "y": "y",
@@ -62,7 +62,7 @@
  "colour": "rgb",
 "x": "numeric",
 "y": "numeric",
-"showSelected": "factor",
+"showSelected": "integer",
 "label": "factor",
 "PANEL": "integer" 
 },
@@ -84,7 +84,60 @@
  "iter" 
 ],
 "nest_order": [],
-"timeValues": [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" ] 
+"timeValues": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] 
+},
+"geom3_tallrect_displacement": {
+ "geom": "tallrect",
+"classed": "geom3_tallrect_displacement",
+"aes": {
+ "xmin": "xmin",
+"xmax": "xmax",
+"clickSelects": "iter" 
+},
+"params": {
+ "alpha": [    0.2 ] 
+},
+"subset_order": [],
+"types": {
+ "xmin": "numeric",
+"xmax": "numeric",
+"clickSelects": "integer",
+"PANEL": "integer",
+"group": "integer" 
+},
+"PANEL": 1,
+"chunks": 1,
+"total": 1,
+"chunk_order": [],
+"nest_order": [],
+"timeValues": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+"nextgeom": "geom4_line_displacement" 
+},
+"geom4_line_displacement": {
+ "geom": "line",
+"classed": "geom4_line_displacement",
+"aes": {
+ "x": "iter",
+"y": "tot_disp",
+"group": "point",
+"colour": "point" 
+},
+"params": [],
+"subset_order": [],
+"types": {
+ "colour": "rgb",
+"x": "numeric",
+"y": "numeric",
+"group": "integer",
+"PANEL": "integer" 
+},
+"PANEL": 1,
+"chunks": 1,
+"total": 1,
+"chunk_order": [],
+"nest_order": [
+ "group" 
+] 
 } 
 },
 "time": {
@@ -100,15 +153,16 @@
  "selected": "1",
 "type": "single",
 "update": [
- "geom1_point_plot",
-"geom2_text_plot" 
+ "geom1_point_location",
+"geom2_text_location",
+"geom3_tallrect_displacement" 
 ],
 "chunks": "iter",
 "duration":    250 
 } 
 },
 "plots": {
- "plot": {
+ "location": {
  "strips": {
  "top": [
  "" 
@@ -134,8 +188,8 @@
 "height_proportion": [      1 ] 
 },
 "geoms": [
- "geom1_point_plot",
-"geom2_text_plot" 
+ "geom1_point_location",
+"geom2_text_location" 
 ],
 "axis1": {
  "x": [
@@ -340,6 +394,178 @@
 } 
 },
 "title": "Brownian Motion in Two Dimensions",
+"options": {
+ "width":    400,
+"height":    400 
+} 
+},
+"displacement": {
+ "strips": {
+ "top": [
+ "" 
+],
+"right": [
+ "" 
+],
+"n": {
+ "top":      0,
+"right":      0 
+} 
+},
+"layout": {
+ "PANEL": [ 1 ],
+"ROW": [ 1 ],
+"COL": [ 1 ],
+"SCALE_X": [ 1 ],
+"SCALE_Y": [ 1 ],
+"AXIS_X": [ true ],
+"AXIS_Y": [ true ],
+"coord_fixed": [ false ],
+"width_proportion": [      1 ],
+"height_proportion": [      1 ] 
+},
+"geoms": [
+ "geom3_tallrect_displacement",
+"geom4_line_displacement" 
+],
+"axis1": {
+ "x": [
+ 0.090909,
+0.18182,
+0.27273,
+0.36364,
+0.45455,
+0.54545,
+0.63636,
+0.72727,
+0.81818,
+0.90909 
+],
+"xlab": [
+ "1",
+"2",
+"3",
+"4",
+"5",
+"6",
+"7",
+"8",
+"9",
+"10" 
+],
+"xrange": [      0,     11 ],
+"xline": true,
+"xticks": true,
+"y": [
+ 0.045455,
+0.34367,
+0.64188,
+0.94009 
+],
+"ylab": [
+ "0",
+"5",
+"10",
+"15" 
+],
+"yrange": [ -0.76212, 16.005 ],
+"yline": true,
+"yticks": true 
+},
+"xtitle": "Iteration",
+"xanchor": "middle",
+"xangle":      0,
+"ytitle": "Total Displacement",
+"yanchor": "end",
+"yangle":      0,
+"xlabs": [
+ "1",
+"2",
+"3",
+"4",
+"5",
+"6",
+"7",
+"8",
+"9",
+"10" 
+],
+"ylabs": [
+ "0",
+"5",
+"10",
+"15" 
+],
+"legend": {
+ "point": {
+ "guide": "legend",
+"geoms": "path",
+"title": "point",
+"entries": [
+ {
+ "pathcolour": "#FF62BC",
+"pathsize":    0.5,
+"pathlinetype":      1,
+"label": [ "10" ] 
+},
+{
+ "pathcolour": "#E76BF3",
+"pathsize":    0.5,
+"pathlinetype":      1,
+"label": [ "9" ] 
+},
+{
+ "pathcolour": "#9590FF",
+"pathsize":    0.5,
+"pathlinetype":      1,
+"label": [ "8" ] 
+},
+{
+ "pathcolour": "#00B0F6",
+"pathsize":    0.5,
+"pathlinetype":      1,
+"label": [ "7" ] 
+},
+{
+ "pathcolour": "#00BFC4",
+"pathsize":    0.5,
+"pathlinetype":      1,
+"label": [ "6" ] 
+},
+{
+ "pathcolour": "#00BF7D",
+"pathsize":    0.5,
+"pathlinetype":      1,
+"label": [ "5" ] 
+},
+{
+ "pathcolour": "#39B600",
+"pathsize":    0.5,
+"pathlinetype":      1,
+"label": [ "4" ] 
+},
+{
+ "pathcolour": "#A3A500",
+"pathsize":    0.5,
+"pathlinetype":      1,
+"label": [ "3" ] 
+},
+{
+ "pathcolour": "#D89000",
+"pathsize":    0.5,
+"pathlinetype":      1,
+"label": [ "2" ] 
+},
+{
+ "pathcolour": "#F8766D",
+"pathsize":    0.5,
+"pathlinetype":      1,
+"label": [ "1" ] 
+} 
+] 
+} 
+},
+"title": "Cumulative Movement",
 "options": {
  "width":    400,
 "height":    400 
